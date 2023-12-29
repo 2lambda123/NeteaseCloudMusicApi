@@ -1,20 +1,19 @@
-// 乐谱列表
-const crypto = require('crypto')
+// 一起听创建房间
+
 module.exports = (query, request) => {
   const data = {
-    id: query.id,
-    abTest: query.ab || 'b',
+    refer: 'songplay_more',
   }
   return request(
     'POST',
-    `https://interface3.music.163.com/eapi/music/sheet/list/v1`,
+    `http://interface.music.163.com/eapi/listen/together/room/create`,
     data,
     {
       crypto: 'eapi',
       cookie: query.cookie,
       proxy: query.proxy,
       realIP: query.realIP,
-      url: '/api/music/sheet/list/v1',
+      url: '/api/listen/together/room/create',
     },
   )
 }
